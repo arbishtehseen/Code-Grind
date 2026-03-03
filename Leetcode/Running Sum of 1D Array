@@ -1,0 +1,20 @@
+#include <stdlib.h>
+
+int* runningSum(int* nums, int numsSize, int* returnSize) {
+    // 1️⃣ Dynamic memory allocate karo
+    int* runningsum = (int*) malloc(numsSize * sizeof(int));
+    
+    // 2️⃣ First element initialize
+    runningsum[0] = nums[0];
+    
+    // 3️⃣ Running sum calculate karo
+    for(int i = 1; i < numsSize; i++) {
+        runningsum[i] = runningsum[i-1] + nums[i];
+    }
+    
+    // 4️⃣ Return size set karo
+    *returnSize = numsSize;
+    
+    // 5️⃣ Array ka pointer return karo
+    return runningsum;
+}
