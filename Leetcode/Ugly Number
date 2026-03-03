@@ -1,0 +1,12 @@
+class Solution {
+public:
+    bool isUgly(int n) {
+        if(n <= 0) return false;
+        
+        while(n % 2 == 0) n /= 2;  // divide out all 2s
+        while(n % 3 == 0) n /= 3;  // divide out all 3s
+        while(n % 5 == 0) n /= 5;  // divide out all 5s
+        
+        return n == 1;  // if 1 remains, it's ugly!
+    }
+};
