@@ -1,0 +1,20 @@
+int removeDuplicates(int* nums, int numsSize) {
+    for(int i = 0; i < numsSize; i++) {
+        int yes = 0;
+        for(int j = i + 1; j < numsSize; j++) {
+            if(nums[i] == nums[j]) {
+                yes = 1;
+                // shift elements left
+                for(int k = j; k < numsSize - 1; k++) {
+                    nums[k] = nums[k + 1];
+                }
+                numsSize--;  // reduce size
+            }
+            if(yes == 1) {
+                j--;  // check new element at same index
+                yes = 0;  // reset flag
+            }
+        }
+    }
+    return numsSize;  // new array size
+}
