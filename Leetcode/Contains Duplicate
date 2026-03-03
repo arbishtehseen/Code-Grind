@@ -1,0 +1,20 @@
+#include <vector>
+#include <unordered_set>
+using namespace std;
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> seen;  // ye ek special box hai jo unique numbers rakhta hai
+
+        for(int i = 0; i < nums.size(); i++) {
+            if(seen.count(nums[i])) {
+                // agar number already box me hai → duplicate hai
+                return true;
+            }
+            seen.insert(nums[i]); // number box me add karo
+        }
+
+        return false; // agar duplicate nahi mila
+    }
+};
