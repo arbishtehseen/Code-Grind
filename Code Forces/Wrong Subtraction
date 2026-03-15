@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int n ; 
+	
+	cin>>n; 
+	
+	int k ; 
+	
+	cin>>k; 
+	
+	int temp ; 
+	for(int i = 0 ; i < k ; i++){
+		
+		temp = n%10 ; 
+		
+		if(temp == 0){
+			n/=10; 
+		}
+		else{
+			temp--;
+			n/=10; 
+			n = n*10 + temp; 
+		}
+	}
+	
+	cout << n << endl;
+	return 0; 
+}
