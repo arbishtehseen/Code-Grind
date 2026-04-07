@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int m , n , a; 
+	
+	cin>>m;
+	cin>>n;
+	cin>>a; 
+	
+	long long int tiles_row = m/a; 
+	
+	if(m % a != 0){
+		tiles_row++; 
+	}
+	
+	
+	// if ans is 1.5 iss formula se it will be 2.
+	long long int tiles_col = (n + a - 1)/a;
+	
+	long long int totaltiles = tiles_row*tiles_col;
+	
+	cout<<totaltiles;
+	
+	return 0; 
+}
