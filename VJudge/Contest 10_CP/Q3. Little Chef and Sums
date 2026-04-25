@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+
+    int t;
+    cin >> t; 
+
+    while(t--) {
+        int n;
+        cin >> n;
+        long long a[n + 1];
+        long long pref[n + 1];
+        long long suff[n + 2]; 
+
+        pref[0] = 0;
+        for(int i = 1; i <= n; i++) {
+            cin >> a[i];
+            pref[i] = pref[i-1] + a[i]; 
+        }
+
+        suff[n + 1] = 0;
+        for(int i = n; i >= 1; i--) {
+            suff[i] = suff[i+1] + a[i]; 
+
+        long long min_total = -1; 
+        int ans_index = 1;
+
+        for(int i = 1; i <= n; i++) {
+            long long current_total = pref[i] + suff[i]; 
+
+           
+            if(min_total == -1 || current_total < min_total) {
+                min_total = current_total;
+                ans_index = i;
+            }
+        }
+        cout << ans_index << "\n";
+    }
+    return 0;
+}
