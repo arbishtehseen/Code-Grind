@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	
+	int n;
+	cin>>n;
+	
+	int child , candy; 
+	
+	
+	for(int i = 0 ; i < n ; i++){
+		
+		cin>>child>>candy;
+		int candypackets = 0;
+		
+		while(candy < child){
+			candy+=4; 
+			candypackets++;
+		}
+		
+		cout<<candypackets<<endl;
+		
+	}
+
+	return 0; 
+}
