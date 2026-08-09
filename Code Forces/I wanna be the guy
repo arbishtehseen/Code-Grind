@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int levels;
+    cin>>levels;
+    
+    int p;
+    cin>>p;
+    
+    int x[p]; 
+    for(int i = 0 ; i < p ; i++){
+    	cin>>x[i];
+	}
+	
+	int q;
+	cin>>q;
+	
+	int y[q];
+	for(int i = 0 ; i < q ; i++){
+		cin>>y[i]; 
+	}
+	
+	for(int curr = 1 ; curr <= levels ; curr++){
+		
+		bool found = false;
+		
+		for(int i = 0 ; i < p ; i++){
+			if(x[i] == curr){
+				found = true ;
+				break;
+			}
+		}
+		
+		if(!found){
+			for(int i = 0 ; i < q ; i++){
+				if(y[i] == curr){
+					found = true;
+					break;
+				}
+			}
+		}
+		
+		if(!found){
+			cout<<"Oh, my keyboard!"<<endl;
+			return 0;
+		}
+	}
+	cout<<"I become the guy."<<endl;
+	
+	
+	return 0;
+}
