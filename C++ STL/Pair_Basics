@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+int main(){
+	// Pair --> Class in C++, which stores 2 values.
+	
+	// Syntax : 
+	//  Pair<data_type , data_type> p;
+	pair<int, string> p; 
+	
+	// There are two ways to store value in pair.
+	// 1. in built function
+	// p = make_pair(2, "abc"); 
+	// 2. another way:
+	p = {2 , "abc"};
+	
+	// how to access?
+	cout<< p.first <<" "<< p.second<<endl;
+	
+	// Pair can also be copied.
+	pair<int , string> p1 = p; 
+	p1.first = 3; 
+	// p.first will remain same , it wont change to 3. as its not done by refrence.
+	// pair<int , string> &p1 = p;
+	// now its done by refrence.
+	// p1.first = 3;   so, p.first is changed to 3. 
+	
+	
+	
+	return 0;
+}
