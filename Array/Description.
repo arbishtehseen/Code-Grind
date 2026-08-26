@@ -1,0 +1,13 @@
+# 📦 Arrays & Subarray Techniques — CodeGrind
+
+Welcome to the **Arrays** directory of the `CodeGrind` repository! This folder tracks my learning journey, algorithm implementations, and problem-solving progress on Array Data Structures—building from absolute basics to advanced competitive programming techniques.
+
+---
+
+## 🎯 Primary Goals
+* **Pattern-Based Learning:** Focus on identifying recurring array patterns (Prefix Sums, Two Pointers, Sliding Window, etc.) rather than memorizing individual solutions.
+* **Complexity Optimization:** Work systematically to optimize brute-force implementations ($O(N^2)$ or $O(N^3)$) into optimal time ($O(N)$, $O(\log N)$) and space ($O(1)$) solutions.
+* **Multi-Platform Practice:** Solve and document problems from diverse coding platforms, contest archives, and practice resources.
+* **Revision-Ready Documentation:** Maintain clean C++ implementations along with detailed comments, edge cases, and mathematical insights for quick reference.
+
+---
