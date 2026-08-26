@@ -1,0 +1,22 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+	int n;
+	cin>>n;
+	vector<int> arr(n , 0);
+	vector<int> pref(n+1, 0); 
+	
+	for(int i = 1 ; i <= n ; i++){
+		int x;
+		cin>>x;
+		arr.push_back(x); 
+		pref[i] = pref[i-1] + x;
+	}
+	
+	for(auto val : pref){
+		cout << val << endl;
+	}
+	
+	return 0;
+}
