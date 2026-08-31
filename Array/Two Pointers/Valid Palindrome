@@ -1,0 +1,30 @@
+#include<string>
+#include<cstring>
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string neww;
+        for(int i = 0 ; i < s.length() ; i++){
+            if(s[i] >= 'a' && s[i] <= 'z' ||
+            s[i] >= 'A' && s[i] <= 'Z'||
+            s[i] >= '0' && s[i] <= '9'){
+                if( s[i] >= 'A' && s[i] <= 'Z'){
+                    s[i]+=32;
+                }
+                neww.push_back(s[i]);
+            }
+        }
+
+        int left = 0;
+        int right = neww.length() - 1;
+
+        while(left < right){
+            if(neww[left] != neww[right]){
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+};
