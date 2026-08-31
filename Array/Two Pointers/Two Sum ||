@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        long long left = 0 ;
+        long long right = (numbers.size()) - 1; 
+        vector<int> index(2, 0);
+        
+        while(left < right){
+            long long sum = numbers[left] + numbers[right];
+            if( sum == target){
+                left++;
+                right++;
+                index[0] = left;
+                index[1] = right;
+                break;
+            }
+            else if(sum > target){
+                right--;
+            }
+            else{
+                left++;
+            }
+        }
+        return index;
+    }
+};
