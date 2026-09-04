@@ -1,0 +1,63 @@
+#include<iostream>
+using namespace std;
+
+class Node{
+	public : 
+	int data;
+	Node* next; 
+	
+	Node(int val){
+		data = val;
+		next = NULL;
+	}	
+};
+
+class List{
+	private :
+		Node* head;
+		Node* tail;
+		
+	public:
+		List() {
+			head = NULL;
+			tail = NULL;
+		}
+		
+		// PushFront in LinkedList 
+		void push_front(int val){
+			/*	Node newNode(val);  static. we dont want it because as soon
+		as we'll get outta function call the data will be deleted. 
+		*/
+			Node* newNode = new Node(val); // dynamic
+		    if(head == NULL){
+		    	head = tail = newNode;
+		    	return ; 
+			}  
+		else{
+			newNode->next = head;
+			head = newNode;
+		}
+	}
+	
+	void PrintLL(){
+		Node* temp = head;
+		
+		while(temp != NULL){
+			cout << temp->data << " ";
+			temp = temp->next;
+		}
+		cout << endl;
+	}
+};
+ 
+
+int main(){
+	// Creating LinkedList :
+	List ll;
+	ll.push_front(1);
+	ll.push_front(2);
+	ll.push_front(3);
+	ll.PrintLL();
+	
+	return 0;
+}
