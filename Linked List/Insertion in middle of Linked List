@@ -1,0 +1,24 @@
+void insert_middle(int val , int pos){
+		
+		if( pos < 0){
+			return ;
+		}
+		
+		if( pos == 0 ){
+			push_front(val);
+			return;
+		}
+		
+		Node* newNode = new Node(val); 
+		Node* temp = head;
+		
+		for(int i = 0 ; i < pos - 1 ; i++){
+			if(temp == NULL){
+				return;
+			}
+			temp = temp->next;
+		}
+		newNode->next = temp->next;
+		temp->next = newNode;
+   }
+   
