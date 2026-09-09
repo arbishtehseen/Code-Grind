@@ -1,0 +1,19 @@
+ int search(int val){
+   	    Node* temp = head;
+   	    int pos = 0;
+   	    
+   	    if(head == NULL){
+   	    	return -1 ;
+		}
+   	    
+   	    while(temp != NULL){
+   	    	
+   	    	if(temp->data == val){
+   	    		return pos;
+			   }
+		   temp = temp->next;
+   	       pos++;
+   	   }
+   	   return -1;
+   }
+	
