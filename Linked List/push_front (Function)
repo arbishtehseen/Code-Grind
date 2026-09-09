@@ -1,0 +1,14 @@
+void push_front(int val){
+			/*	Node newNode(val);  static. we dont want it because as soon
+		as we'll get outta function call the data will be deleted. 
+		*/
+			Node* newNode = new Node(val); // dynamic
+		    if(head == NULL){
+		    	head = tail = newNode;
+		    	return ; 
+			}  
+		else{
+			newNode->next = head;
+			head = newNode;
+		}
+	}
