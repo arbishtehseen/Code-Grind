@@ -1,0 +1,47 @@
+#include<iostream>
+#include<climits>
+#include<vector>
+using namespace std;
+int main(){
+	long long n , k;
+	cin >> n >> k; 
+	
+	long long min = INT_MAX;
+	vector<long long> arr(n);
+	for(int i = 0 ; i < n ; i++){
+		cin >> arr[i] ; 
+		if(min > arr[i]){
+			min = arr[i];
+		}
+	}
+	
+	long long low = 0;
+	long long high = k*min;
+	long long min_time = high ;
+	
+	
+	while(low <= high){
+		long long sum = 0;
+		long long T = low + ((high - low) / 2);
+		
+		for(int i = 0 ; i < n ; i++){
+			sum += (T/arr[i]);
+			if( sum >= k ){
+				break;
+			}
+		}
+		
+		if( sum >= k && min_time > T ){
+			min_time = T ;
+		} 
+		
+		if ( sum >= k ){
+			high = T - 1; 
+		} else {
+			low = T + 1;
+		}
+   }
+   cout << min_time ;
+	
+	return 0;
+}
