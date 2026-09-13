@@ -1,0 +1,54 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* temp1 = l1; 
+        long long var1 = 0; 
+
+        while(temp1 != NULL){
+          var1 = (var1 * 10) + temp1->val;
+          temp1 = temp1->next;
+        }
+
+        long long rvar1 = 0 ; 
+        while(var1 != 0){
+            rvar1 = (rvar1 * 10 ) + (var1 % 10);
+            var1 /= 10;
+        }
+
+        ListNode* temp2 = l2; 
+        long long var2 = 0; 
+
+        while(temp2 != NULL){
+          var2 = (var2 * 10) + temp2->val;
+          temp2 = temp2->next;
+        }
+
+        long long rvar2 = 0 ; 
+        while(var2 != 0){
+            rvar2 = (rvar2 * 10 ) + (var2 % 10);
+            var2 /= 10;
+        }
+
+        long long  result = rvar1 + rvar2; 
+        ListNode* head = new ListNode(result%10);
+        ListNode* l3 = head; 
+        result /= 10; 
+
+        while(result != 0){
+            l3 -> next = new ListNode(result % 10);
+            l3 = l3->next;
+            result /= 10 ;
+        }
+       return head;
+    }
+};
