@@ -1,0 +1,28 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main(){
+	int n; 
+	cin >> n ;
+ 
+    int arr[n];
+    long long total_time = 0;
+    int max_time = 0;
+	for(int i = 0 ; i < n ; i++){
+		cin >> arr[i]; 
+		total_time += arr[i];
+		if(max_time < arr[i]){
+			max_time = arr[i]; 
+		}
+	}
+	long long remaining_time = total_time - max_time;
+	
+	if( max_time > remaining_time ){
+		max_time += max_time; 
+		cout << max_time ; 
+	} else {
+		cout << total_time ; 
+	}
+	
+	return 0;
+}
