@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int shipWithinDays(vector<int>& weights, int days) {
+        long long low = *max_element(weights.begin() , weights.end()); 
+        long long  high = 0;
+
+        for( int i = 0 ; i < weights.size() ; i++ ) {
+            high += weights[i];
+        }
+
+        while ( low <= high ){
+            long long mid = low + (high - low)/2;
+            long long current_sum = 0;
+            int day = 1; 
+
+            for(int i = 0 ; i < weights.size() ; i++){ 
+                 if( (current_sum += weights[i]) > mid ) {
+                    current_sum = weights[i];
+                    day++;
+                 }
+            }
+            if(day <= days ) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            } 
+        }
+        
+        return low;
+    }
+};
