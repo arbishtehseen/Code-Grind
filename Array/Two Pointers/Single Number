@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+
+        if(nums.size() == 1){
+            return nums[0]; 
+        }
+        sort(nums.begin(), nums.end());
+
+        int l = 0;
+        int r = 1;
+        while ( r < nums.size()){
+            if(nums[l] != nums[r]) {
+                return nums[l];
+            } else {
+                r += 2; 
+                l += 2;
+            }
+        }
+        return nums[l];
+    }
+};
