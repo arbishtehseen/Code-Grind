@@ -1,0 +1,27 @@
+#include<string>
+#include<unordered_map>
+class Solution {
+public:
+    int characterReplacement(string s, int k) {
+        int left = 0;
+        unordered_map<char , int> m;
+        int maxfreq = 0;
+        int window = 0;
+        int max_char_freq = 0;
+
+        for( int right = 0 ; right < s.length() ; right++ ){
+            m[s[right]]++; 
+            window++;
+            max_char_freq = max(max_char_freq, m[s[right]]);
+            while((window - max_char_freq) > k){
+                m[s[left]]--;
+                left++;
+                window--;
+            }
+            if(maxfreq < window){
+                maxfreq = window;
+            }
+        }
+        return maxfreq;
+    }
+};
