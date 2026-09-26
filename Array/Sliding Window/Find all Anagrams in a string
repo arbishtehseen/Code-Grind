@@ -1,0 +1,30 @@
+#include<unordered_map>
+#include<vector>
+#include<string>
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+       unordered_map<char, int> substr;
+       unordered_map<char, int> window;
+       vector<int> indexes;
+       for(int i = 0 ; i < p.length(); i++){
+        substr[p[i]]++;
+       }
+
+       int left = 0; 
+       for(int right = 0 ; right < s.length(); right++){
+           window[s[right]]++;
+           if((right - left + 1) > p.length()){
+               window[s[left]]--;
+               if(window[s[left]] == 0){
+                window.erase(s[left]);
+               }
+               left++;
+           }
+           if( window == substr ){
+              indexes.push_back(left);
+           }
+       }
+       return indexes;
+    }
+};
